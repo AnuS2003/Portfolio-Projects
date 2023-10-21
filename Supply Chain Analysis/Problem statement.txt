@@ -1,0 +1,34 @@
+PROBLEM STATEMENT
+
+In the face of dynamic market conditions and global uncertainties, optimizing our supply chain is essential to reduce operational costs, meet customer demands efficiently, and ensure product availability. Addressing challenges such as fluctuating customer preferences, supply chain disruptions, and cost pressures is crucial to maintain competitiveness in the real world.
+
+STAKEHOLDERS
+
+Stakeholders in this supply chain analysis include customers, suppliers, manufacturers, distributors, retailers, logistics providers, finance teams, executives, regulatory bodies, and shareholders, all seeking to align supply chain processes to meet evolving market demands, control costs, and enhance overall customer experience.
+
+PROJECT GOALS:
+-->  Ensure data integrity by removing inconsistencies and addressing missing information.
+-->  Discover patterns in logistics, cost, quantity, and production data to inform decision-making.
+-->  Informed decision-making, guided by the insights gained from the supply chain analysis, will enable organizations to enhance operational efficiency, reduce costs, and improve responsiveness, ultimately leading to a more agile and competitive supply chain.
+
+___________________________
+
+KEY INSIGHTS:
+--> Cost analysis in the supply chain is essential for optimizing operations and enhancing competitiveness, as it helps identify areas for cost reduction, resource efficiency, and profit margin improvement. By understanding the cost structure, businesses can make informed decisions, allocate resources effectively, and maintain financial sustainability while delivering quality products or services to customers.
+
+--> Supply chain analysis is crucial for optimizing the flow of goods and services, reducing inefficiencies, and enhancing overall supply chain performance. It enables businesses to identify bottlenecks, streamline processes, and improve responsiveness to market changes, ultimately ensuring the reliable delivery of products to customers while minimizing costs and maximizing customer satisfaction.
+
+--> Logistic analysis in the supply chain is vital as it enables businesses to strategically plan, manage, and execute the movement of goods, reducing delays and operational costs. This ensures on-time deliveries, enhances customer satisfaction, and strengthens overall supply chain competitiveness.
+
+-->Quality analysis in the supply chain is crucial for maintaining consistent product or service quality, which directly impacts customer satisfaction and brand reputation. It helps identify and address issues early in the supply chain process, reducing defects, minimizing rework, and ensuring the delivery of reliable and high-quality products to the end consumer.
+
+-->Production analysis in the supply chain is pivotal for optimizing manufacturing processes, minimizing production bottlenecks, and ensuring efficient resource allocation. By analyzing production data, businesses can enhance output, reduce lead times, and meet demand effectively, leading to cost savings and improved customer satisfaction.
+
+-->Production analysis can affect market demand by ensuring products are readily available, helping meet customer needs. Cost analysis can influence demand through competitive pricing, while quantity analysis aids in maintaining appropriate inventory levels, and logistics and supply chain analysis improve delivery efficiency, enhancing overall customer satisfaction and demand.
+
+
+
+
+
+
+

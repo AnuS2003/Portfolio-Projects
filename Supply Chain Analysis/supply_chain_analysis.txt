@@ -1,0 +1,147 @@
+DATA EXPLORATION
+-- checking unique values in the dataset 
+select DISTINCT product_type as Products
+from supply_chain_data;
+-- There are 3 product types:haircare,skincare,cosmetics
+
+select DISTINCT product_type as Products
+from supply_chain_data;
+--99 levels of sku
+
+select DISTINCT customer_demographics as Customer_Demographics
+from supply_chain_data;
+--Non-Binary,Female,Unknown,Male
+
+select DISTINCT shipping_carriers
+from supply_chain_data;
+--Carrier A,Carrier B,Carrieer C
+
+select DISTINCT shipping_carriers
+from supply_chain_data;
+--There are 5 suppliers
+
+select DISTINCT shipping_carriers
+from supply_chain_data;
+--There are 5 locations: Mumbai, Kolkata, Delhi, Banglore, Chennai
+
+select DISTINCT inspection_results
+from supply_chain_data;
+-- Pending,Fail,Pass
+
+select DISTINCT shipping_carriers
+from supply_chain_data;
+--Road,Air,Rail,Sea
+
+select DISTINCT routes
+from supply_chain_data;
+--Route A,Route B,Route C
+
+--Checking missing values
+select product_type
+from supply_chain_data
+where product_type is null;
+--There is no missing values in any of the columns in the dataset
+
+
+DATA ANALYSIS
+
+#COST ANALYSIIS
+
+#1.What are the most costly products to produce?
+
+SELECT Product_type,ROUND(SUM(Manufacturing costs),2) as total_production_cost
+FROM supply_chain_data
+GROUP BY Product_type
+ORDER BY total_production_cost desc
+LIMIT 3;
+--Skincare products takes manufacturing costs of 1959.73 are costly products followed by haircare and skincare of 1647.57 and 1119.37 respectively.
+
+
+#2.How do manufacturing costs relate to selling price?
+
+SELECT Product_type,ROUND(AVG(Manufacturing costs),4) as manufacturing_costs,ROUND(AVG(Price),4) as selling_price
+FROM supply_chain_data
+GROUP BY Product_type;
+--  Cosmetics has profiability margin because manufacturing costs are less than selling price whereas skincare and hircare products are viceversa.
+
+#3.What is the overall profitabilty (revenue-costs) for each product?
+
+SELECT product_type,SUM(revenue_generated)  AS total_revenue,
+SUM(costs)  AS total_costs,
+SUM(revenue_generated)-SUM(costs) AS Overall_profitability
+FROM supply_chain_data
+GROUP BY product_type
+order by Overall_profitability DESC;
+-- Skincare products has more profitabilty compared to other products.Knowing the profitability of each product helps in strategic product management. 
+
+#SUPPLY CHAIN ANALYSIS
+
+#1. What are the average lead times for different products?
+SELECT Product_type,AVG(Lead times) AS Average_lead_times
+FROM supply_chain_data
+GROUP BY Product_type;
+
+#2. How does lead time affect stock levels and availability?
+SELECT Product_type,AVG(Lead times) AS Average_lead_times,AVG(Availabilty) AS Average_Availability,AVG(Stock levels) AS Average_stocks
+FROM supply_chain_data
+GROUP BY Product_type;
+--Lead time refers to the time it takes for an order to be placed, processed, and the products to be delivered and has a direct and substantial impact on stock levels and product availability in the supply chain. Therefore, Cosmetics has better lead time.
+
+#3.Are there any correlations between defect rates and inspection rates?
+SELECT inspection_results,AVG(defect_rates) AS avg_defect_rates
+FROM supply_chain_data
+GROUP BY inspection_results,product_type
+order by avg_defect_rates DESC;
+-- The pass inspection results of haircare products have high corelation of 2.924 followed by inspection results of other products and pass inspection results of skincare product has least correlation of 1.67. 
+
+#LOGISTIC ANALYSIS
+
+#1. What are the most common transportation modes used?
+SELECT Transportation modes, COUNT(Transportation modes) AS Mode_Count
+FROM supply_chain_data
+GROUP BY Transportation modes
+ORDER BY Mode_Count DESC;
+--The most preferred mode of trasportation for supplying products is road.
+
+#2.How do different transportation modes affect lead time and costs?
+SELECT Transportation modes,AVG(Lead times) AS Avg_lead_times, AVG(Costs) AS Avg_costs
+FROM supply_chain_data
+GROUP BY Transportation modes;
+--Different transportation modes can have a significant impact on lead time and costs in supply chain management. The choice of transportation mode depends on various factors, including the nature of the products, delivery requirements, and cost considerations.
+
+#3.Which routes are commonly used,what is their impact on costs and lead times?
+SELECT Transportation modes AS Routes, COUNT(Transportation modes) AS Mode_Count,AVG(Lead times) AS Avg_lead_times, AVG(Costs) AS Avg_costs
+FROM supply_chain_data
+GROUP BY Routes
+ORDER BY Mode_Count DESC;
+--By considering impact on costs and lead times, rail is the commonly used route.
+
+#QUAILITY ANALYSIS
+
+#1.What is the average defect rates for each product type?
+SELECT Product_type,AVG(Defect rates) AS Avg_defect_rates
+FROM supply_chain_data
+GROUP BY Product_type;
+-- The average defect rates for each product type:
+cosmetics - 1.919
+haircare - 2.483
+skincare - 2.334
+
+#PRODUCTION ANALYSIS
+
+#1.How do production volumes relate to stock levels and sales quantities?
+SELECT product_type,
+    SUM(production_volumes) AS total_production_volumes,
+    SUM(stock_levels) AS total_stock_levels,
+    SUM(number_of_products_sold) AS total_products_sold
+FROM supply_chain_data
+GROUP BY product_type;
+-- When production volumes exceed current demand (sales quantities), stock levels increase. This can be strategic, allowing businesses to build up safety stock to meet future demand fluctuations, but it also comes with higher carrying costs.
+According to the analysis, production volumes won't exceed number of products sold. When production volumes won't exceed the number of products sold, aligning production volumes with the number of products sold is a strategic choice to minimize carrying costs and optimize resources.
+
+
+#2. Are production volumnes aligned with market demand?
+SELECT Product_type,SUM(Number of products sold) AS Products_sold,SUM(Production volumes) as Production_Volumes
+FROM supply_chain_data
+GROUP BY Product_type;
+--The alignment of production volumes with market demand is a crucial consideration in supply chain and operations management and market demand varies based on the specific characteristics of the industry, products, and supply chain strategy. Based on number of products sold, there will be demand in production volumes.
