@@ -1,1 +1,2 @@
-This repository consists my portfolio projects in the field of data analyst.
+
+This repository contains a collection of my portfolio projects focused on data analysis.
